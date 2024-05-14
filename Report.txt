@@ -1,0 +1,19 @@
+type: begin with ty_vbak,
+      vbeln type vbeln_va,
+      erdat type erdat,
+      erzet type etzet,
+      ernam type ernam,
+      end of ty_vbak.
+
+data: it_vbak type table of ty_vbak,
+      ls_vbak type ty_vbak.	 
+
+select-option: s_vbeln for vbeln-vbak.
+
+select vbeln erdat erzet ernam from vbak
+into table it_vbak where
+vbeln = s_vbeln.
+
+if it_vbak is initial.
+loop it_vbak into ls_vbak.
+endif.
